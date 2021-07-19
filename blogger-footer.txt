@@ -1,0 +1,17 @@
+<footer>
+      <div class='footer container-fluid'><div class='row no-gutters'>
+        	<div class='col-sm-3'>
+          		<b:section class='footer-column footer-column-1' id='footer_column_1' showaddelement='true'/>
+          	</div>
+          
+          	<div class='col-sm-3'>
+          		<b:section class='footer-column footer-column-2' id='footer_column_2' showaddelement='true'/>
+          	</div>
+          
+          	<div class='col-sm-3'>
+          		<b:section class='footer-column footer-column-2' id='footer_column_3' showaddelement='true'/>
+          	</div>
+        	
+        <div class='clearfix opacity-0'>.</div>
+        </div></div>
+    </footer>
