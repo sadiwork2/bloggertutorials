@@ -1,0 +1,4 @@
+<b:if cond='data:blog.url == data:blog.homepageUrl'>
+  <b:section class='front_page' id='homepage' name='homepage' showaddelement='yes'>
+  </b:section>
+</b:if>
