@@ -1,0 +1,122 @@
+<header class='container-fluid' style='position:relative;z-index:1'><div class='row'>
+          <div class='col-sm-11 p-0'><nav class='navbar navbar-expand-lg main-nav'>
+          		<b:section class='navbar-brand' id='logo_area_navbar_brand' showaddelement='false'>
+<b:widget id='Header3' locked='false' title='Nepal Photographers (Header)' type='Header' visible='true'>
+  <b:widget-settings>
+    <b:widget-setting name='displayUrl'/>
+    <b:widget-setting name='displayHeight'>0</b:widget-setting>
+    <b:widget-setting name='sectionWidth'>-1</b:widget-setting>
+    <b:widget-setting name='useImage'>false</b:widget-setting>
+    <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+    <b:widget-setting name='imagePlacement'>BEHIND</b:widget-setting>
+    <b:widget-setting name='displayWidth'>0</b:widget-setting>
+  </b:widget-settings>
+  <b:includable id='main' var='this'>
+    <div class='header-widget'>
+      <b:include cond='data:imagePlacement in {&quot;REPLACE&quot;, &quot;BEFORE_DESCRIPTION&quot;}' name='image'/>
+      <b:include cond='data:imagePlacement not in {&quot;REPLACE&quot;, &quot;BEFORE_DESCRIPTION&quot;}' name='title'/>
+      <b:include cond='data:imagePlacement != &quot;REPLACE&quot;' name='description'/>
+    </div>
+    <b:include cond='data:imagePlacement == &quot;BEHIND&quot;' name='behindImageStyle'/>
+  </b:includable>
+  <b:includable id='behindImageStyle'>
+    <b:if cond='data:sourceUrl'>
+      <b:include cond='data:this.image' data='{                    image: data:this.image,                    selector: &quot;.header-widget&quot;                  }' name='responsiveImageStyle'/>
+      <style type='text/css'>
+        .header-widget {
+          background-position: <data:blog.locale.languageAlignment/>;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      </style>
+    </b:if>
+  </b:includable>
+  <b:includable id='description'>
+    <p>
+      <data:this.description/>
+    </p>
+  </b:includable>
+  <b:includable id='image'>
+          <b:include name='super.image'/>
+          <!-- If we are replacing the title, force it to render anyway, and it'll be hidden in CSS. -->
+          <b:include cond='data:this.imagePlacement == &quot;REPLACE&quot;' name='title'/>
+        </b:includable>
+  <b:includable id='title'>
+          <div>
+            <b:class cond='data:this.imagePlacement == &quot;REPLACE&quot;' name='replaced'/>
+            <b:include name='super.title'/>
+          </div>
+        </b:includable>
+</b:widget>
+</b:section>
+          		<button aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler' data-target='#navbarNav' data-toggle='collapse' type='button'><span class='navbar-toggler-icon'/></button>
+              <b:section class='collapse navbar-collapse' id='navbarNav' showaddelement='false'>
+                <b:widget id='PageList1' locked='false' title='Pages' type='PageList' visible='true'>
+                  <b:widget-settings>
+                    <b:widget-setting name='pageListJson'><![CDATA[{'home': {'href': 'https://nadyabridal.blogspot.com/', 'title': 'Home', 'position': 0}}]]></b:widget-setting>
+                    <b:widget-setting name='homeTitle'>Home</b:widget-setting>
+                  </b:widget-settings>
+                  <b:includable id='main'>
+          <b:if cond='data:widget.sectionId == &quot;navbarNav&quot;'>
+              <b:if cond='data:title != &quot;&quot;'/>
+            		<ul class='navbar-nav'>
+                      <b:loop values='data:links' var='link'>
+                        <b:if cond='data:link.isCurrentPage'>
+                          <li class='nav-item'><a class='active nav-link' expr:href='data:link.href'><data:link.title/></a></li>
+                        <b:else/>
+                          <li class='nav-item'><a class='nav-link' expr:href='data:link.href'><data:link.title/></a></li>
+                        </b:if>
+                      </b:loop>
+                    </ul>
+
+          	</b:if>
+          </b:includable>
+                  <b:includable id='content'>
+  <div class='widget-content'>
+    <b:include name='pageList'/>
+  </div>
+</b:includable>
+                  <b:includable id='overflowButton'>
+  <b:include name='verticalMoreIcon'/>
+</b:includable>
+                  <b:includable id='overflowablePageList'>
+  <div class='overflowable-container'>
+    <div class='overflowable-contents'>
+      <div class='container'>
+        <b:with value='true' var='overflow'>
+        <b:with value='&quot;tabs&quot;' var='pageListClass'>
+          <b:include name='pageList'/>
+        </b:with>
+        </b:with>
+      </div>
+    </div>
+    <div class='overflow-button hidden'>
+      <b:include name='overflowButton'/>
+    </div>
+  </div>
+</b:includable>
+                  <b:includable id='pageLink'>
+  <li>
+    <b:class cond='data:overflow' name='overflowable-item'/>
+    <b:class cond='data:link.isCurrentPage' name='selected'/>
+
+    <a expr:href='data:link.href'><data:link.title/></a>
+  </li>
+</b:includable>
+                  <b:includable id='pageList'>
+  <ul>
+    <b:class cond='data:pageListClass' expr:name='data:pageListClass'/>
+    <b:loop values='data:links' var='link'>
+      <b:include name='pageLink'/>
+    </b:loop>
+  </ul>
+</b:includable>
+                </b:widget>
+              </b:section>
+		    </nav></div>
+            <div class='col-sm-1 centered-top-container p-0'>
+            	<div class='hamburger-section text-center'>
+              		<b:include data='{ button: true, iconClass: &quot;hamburger-menu flat-icon-button ripple&quot; }' name='menuIcon'/>
+            	</div><!-- End hamburger menu -->
+	        </div>
+      </div></header>
